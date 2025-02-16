@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\Users\Aasim\AppData\Local\Microsoft\WinGet\Links\kompose.exe convert
+    kompose.version: 1.31.2 (a92241f79)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: userservice
+  name: userservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: userservice
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\Users\Aasim\AppData\Local\Microsoft\WinGet\Links\kompose.exe convert
+        kompose.version: 1.31.2 (a92241f79)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/exercise-three-app-network: "true"
+        io.kompose.service: userservice
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: "userdb"
+            - name: POSTGRES_HOST
+              value: "db"
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_USER
+              value: "admin"
+            - name: RABBITMQ_DEFAULT_PASS
+              value: "guest"
+            - name: RABBITMQ_DEFAULT_USER
+              value: "guest"
+          image: aasim7/exercise_three-userservice:latest
+          name: userservice
+          ports:
+            - containerPort: 5002
+              hostPort: 5002
+              protocol: TCP
+          resources: {}
+      restartPolicy: Always
+status: {}
