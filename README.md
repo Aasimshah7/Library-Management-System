@@ -1,4 +1,4 @@
-# Library Management Application
+# Library Management System
 
 ## Overview
 This project is a microservices-based **Library Management Application** designed for efficient book borrowing and management. It includes **UserService, BookService, and BorrowService**, with **RabbitMQ** handling asynchronous messaging. The application is containerized using **Docker** and deployed on **Kubernetes** for scalability and fault tolerance.
