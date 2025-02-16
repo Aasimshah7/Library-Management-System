@@ -68,6 +68,3 @@ The application can be deployed using **Kubernetes**. All necessary service defi
 - **Docker, Docker Compose** – Containerization
 - **Kubernetes** – Deployment and scaling
 
-## Author
-Developed by **Aasim Shah**.
-
